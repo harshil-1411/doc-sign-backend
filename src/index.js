@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config({
-  path: "./env", // path to your environment variables file
+  path: "./.env", // path to your environment variables file
 });
 
 import { app } from "./app.js";
