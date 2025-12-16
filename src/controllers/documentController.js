@@ -96,8 +96,15 @@ export const signDocument = async (req, res) => {
     const page = pages[pageNumber];
     const { width: pageWidth, height: pageHeight } = page.getSize();
     // Convert percentages to PDF coordinates
+    const fontSize = 24;
     const x = xPercent * pageWidth;
-    const y = pageHeight - (yPercent * pageHeight); // Flip Y axis
+    const y = yPercent * pageHeight;
+
+    console.log('--- Server Signing Debug ---');
+    console.log('Received Percent:', xPercent, yPercent);
+    console.log('Page Size:', pageWidth, pageHeight);
+    console.log('Calculated Coords:', x, y);
+    console.log('----------------------------');
     // Font selection
     let selectedFont;
     switch (font) {
@@ -123,7 +130,7 @@ export const signDocument = async (req, res) => {
     page.drawText(signatureText, {
       x,
       y,
-      size: 24,
+      size: fontSize,
       font: selectedFont,
       color: rgb(0, 0, 0),
     });
