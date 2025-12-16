@@ -100,11 +100,6 @@ export const signDocument = async (req, res) => {
     const x = xPercent * pageWidth;
     const y = yPercent * pageHeight;
 
-    console.log('--- Server Signing Debug ---');
-    console.log('Received Percent:', xPercent, yPercent);
-    console.log('Page Size:', pageWidth, pageHeight);
-    console.log('Calculated Coords:', x, y);
-    console.log('----------------------------');
     // Font selection
     let selectedFont;
     switch (font) {
